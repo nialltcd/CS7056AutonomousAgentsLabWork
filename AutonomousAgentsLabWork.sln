@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutonomousAgentsLabWork", "AutonomousAgentsLabWork.csproj", "{DFA4B645-AC61-1A16-11B1-6BC22E438D53}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutonomousAgentsLabWork.Editor", "AutonomousAgentsLabWork.Editor.csproj", "{E0579408-9D60-A4C1-2C1E-4CF9C24198B3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DFA4B645-AC61-1A16-11B1-6BC22E438D53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFA4B645-AC61-1A16-11B1-6BC22E438D53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFA4B645-AC61-1A16-11B1-6BC22E438D53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFA4B645-AC61-1A16-11B1-6BC22E438D53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0579408-9D60-A4C1-2C1E-4CF9C24198B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0579408-9D60-A4C1-2C1E-4CF9C24198B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0579408-9D60-A4C1-2C1E-4CF9C24198B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0579408-9D60-A4C1-2C1E-4CF9C24198B3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
