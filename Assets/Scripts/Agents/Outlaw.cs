@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using UnityEngine;
 
 namespace Assets.Scripts.Agents
 {
@@ -10,6 +11,8 @@ namespace Assets.Scripts.Agents
         public delegate void bankRobbery();
         public static event bankRobbery OnBankRobbery;
 
+        private Rigidbody2D rb2D;
+
         private int _waitedTime = 0;
         private int _timeToWait;
 
@@ -17,6 +20,8 @@ namespace Assets.Scripts.Agents
         {
             _stateMachine = new StateMachine<Outlaw>();
             _stateMachine.Init(this, new LurkInOutlawCamp(), new GlobalOutlawState());
+            GameManager.instance.AddAgentToList(this);
+            Location = Location.OutlawCamp;
         }
 
         private StateMachine<Outlaw> _stateMachine;

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using UnityEngine;
+using Random = System.Random;
 
 namespace Assets.Scripts.Agents
 {
@@ -16,7 +18,8 @@ namespace Assets.Scripts.Agents
         {
             _stateMachine = new StateMachine<Sheriff>();
             _stateMachine.Init(this, new PatrolRandomLocation(), new GlobalSheriffState());
-            Location = Location.SheriffsOffice;
+            //Location = Location.SheriffsOffice;
+            GameManager.instance.AddAgentToList(this);
         }
 
         private StateMachine<Sheriff> _stateMachine;

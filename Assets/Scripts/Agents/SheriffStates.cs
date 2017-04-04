@@ -24,6 +24,7 @@ namespace Assets.Scripts.Agents
 
         public override void Exit(Sheriff sheriff)
         {
+            sheriff.MoveAgent(sheriff.PickRandomLocation());
         }
     }
 

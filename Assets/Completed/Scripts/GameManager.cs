@@ -115,7 +115,7 @@ namespace Completed
 		void Update()
 		{
 			//Check that playersTurn or enemiesMoving or doingSetup are not currently true.
-			if(playersTurn || enemiesMoving || doingSetup)
+			//if(playersTurn || Moving || doingSetup)
 				
 				//If any of these are true, return and do not start MoveEnemies.
 				return;

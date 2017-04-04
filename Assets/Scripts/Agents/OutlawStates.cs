@@ -26,6 +26,7 @@ namespace Assets.Scripts.Agents
         public override void Exit(Outlaw outlaw)
         {//I'm going on an adventure
             Debug.Log("I'm going on an adventure");
+            outlaw.MoveAgent(Location.Cemetery);
         }
     }
 
@@ -50,7 +51,7 @@ namespace Assets.Scripts.Agents
         public override void Exit(Outlaw outlaw)
         {//Time to leave this cemetary
             Debug.Log("Time to leave this cemetary");
-
+            outlaw.MoveAgent(Location.OutlawCamp);
         }
     }
 
