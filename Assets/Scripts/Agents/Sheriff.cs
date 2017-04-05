@@ -60,7 +60,8 @@ namespace Assets.Scripts.Agents
             Location nextLocation = Location;
             while (nextLocation == Location.OutlawCamp || nextLocation == Location)
                 nextLocation = (Location)rand.Next(Enum.GetNames(typeof(Location)).Length);
-
+            Debug.Log("Sheriff patrolling: " + nextLocation);
+            this.Location = nextLocation;
             return nextLocation;
         }
 

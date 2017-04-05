@@ -10,17 +10,17 @@ namespace Assets.Scripts.Agents
     {
         public override void Enter(Undertaker agent)
         {
-            Debug.Log("Oh I just arrived to my office Pilgrim");
+            //Debug.Log("Oh I just arrived to my office Pilgrim");
         }
 
         public override void Execute(Undertaker agent)
         {
-            Debug.Log("Hovering in my office Pilgrim");
+            //Debug.Log("Hovering in my office Pilgrim");
         }
 
         public override void Exit(Undertaker agent)
         {
-            Debug.Log("Leaving my office to find some dead guys Pilgrim");
+            //Debug.Log("Leaving my office to find some dead guys Pilgrim");
         }
     }
 

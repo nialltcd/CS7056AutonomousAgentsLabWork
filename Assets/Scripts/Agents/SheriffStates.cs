@@ -15,7 +15,7 @@ namespace Assets.Scripts.Agents
         public override void Execute(Sheriff sheriff)
         {
             Debug.Log("Patrolling the "+sheriff.Location.ToString());
-
+            sheriff.MoveAgent(sheriff.PickRandomLocation());
             if (!sheriff.OutlawSpotted)
            {
                 sheriff.ChangeState(new PatrolRandomLocation());
@@ -24,7 +24,7 @@ namespace Assets.Scripts.Agents
 
         public override void Exit(Sheriff sheriff)
         {
-            sheriff.MoveAgent(sheriff.PickRandomLocation());
+            
         }
     }
 

@@ -13,19 +13,19 @@ namespace Assets.Scripts.Agents
         {
             System.Random randomGenerator = new System.Random();
             outlaw.SetTimeToWait(randomGenerator.Next(1, 10));
-            Debug.Log("I love lurking in my Outlaw Camp for "+ outlaw.ChangeStateCountdown+" cycles");
+            //Debug.Log("I love lurking in my Outlaw Camp for "+ outlaw.ChangeStateCountdown+" cycles");
         }
 
         public override void Execute(Outlaw outlaw)
         {
-            Debug.Log("Outlaw camp is the best!");
+            //Debug.Log("Outlaw camp is the best!");
             if(outlaw.WaitedLongEnough())
                 outlaw.ChangeState(new LurkInCemetary());
         }
 
         public override void Exit(Outlaw outlaw)
         {//I'm going on an adventure
-            Debug.Log("I'm going on an adventure");
+            //Debug.Log("I'm going on an adventure");
             outlaw.MoveAgent(Location.Cemetery);
         }
     }
@@ -38,20 +38,21 @@ namespace Assets.Scripts.Agents
         {//Ooooooh a cemetary!
             System.Random randomGenerator = new System.Random();
             outlaw.SetTimeToWait(randomGenerator.Next(1, 10));
-            Debug.Log("Ooooooh a cemetary!");
+            //Debug.Log("Ooooooh a cemetary!");
         }
 
         public override void Execute(Outlaw outlaw)
         {//
-            Debug.Log("This cemetary is spooky");
+            //Debug.Log("This cemetary is spooky");
             if(outlaw.WaitedLongEnough())
                 outlaw.ChangeState(new LurkInOutlawCamp());
         }
 
         public override void Exit(Outlaw outlaw)
         {//Time to leave this cemetary
-            Debug.Log("Time to leave this cemetary");
+            //Debug.Log("Time to leave this cemetary");
             outlaw.MoveAgent(Location.OutlawCamp);
+            while (outlaw.IsTravelling) { }
         }
     }
 

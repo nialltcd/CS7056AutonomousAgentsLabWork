@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Scripts.AStarService;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,7 +21,7 @@ namespace Assets.Scripts
                 maximum = max;
             }
         }
-
+        
         public int columns = 10;
         public int rows = 10;
         public GameObject[] floorTiles;
@@ -47,10 +48,11 @@ namespace Assets.Scripts
 
         void BoardSetup()
         {
+            TileGridSetUp();
             boardHolder = new GameObject("Board").transform;
-            for (int x = -1; x < columns+1; x++)
+            for (int x = -1; x < rows+1; x++)
             {
-                for (int y = -1; y < rows+1; y++)
+                for (int y = -1; y < columns+1; y++)
                 {
                     gridPositions.Add(new Vector3(x, y, 0f));
                     GameObject toInstantiate = floorTiles[Random.Range(0, floorTiles.Length)];
@@ -60,6 +62,14 @@ namespace Assets.Scripts
                     instance.transform.SetParent(boardHolder);
                 }
            }
+        }
+
+        public void TileGridSetUp()
+        {
+            AStar.TileGrid = new Tile[rows, columns];
+            for (int x = 0; x < rows ; x++)
+                for (int y = 0; y < columns; y++)
+                    AStar.TileGrid[x, y] = new Tile(true,new Vector2(x,y));
         }
 
         Vector3 RandomPosition()
@@ -82,6 +92,7 @@ namespace Assets.Scripts
                 else
                     tileChoice = tileArray[i];
                 Instantiate(tileChoice, randomPosition, Quaternion.identity);
+                AStar.TileGrid[(int)randomPosition.x, (int)randomPosition.y].IsWalkable = false;
             }
         }
 
@@ -96,6 +107,7 @@ namespace Assets.Scripts
                 Instantiate(tileChoice, randomPosition, Quaternion.identity);
                 if(i<agents.Length)
                 {
+                    Debug.Log("Agent created at location: " + "(" + randomPosition.x + ", " + randomPosition.y + ")");
                     GameObject agentChoice = agents[i];
                     Instantiate(agentChoice, randomPosition, Quaternion.identity);
                 }
@@ -108,6 +120,22 @@ namespace Assets.Scripts
             InitialiseList();
             LayoutObjectAtRandom(mountainTiles, mountainCount.minimum, mountainCount.maximum, true);
             LayoutLocationsAtRandom(locationTiles);
+            PrintWalkableGrid();
+        }
+        private void PrintWalkableGrid()
+        {
+            Debug.Log("Columns:"+columns);
+            Debug.Log("Rows:"+rows);
+            string s = "";
+            for (int x = 0; x < rows; x++)
+            {
+                for (int y = 0; y < columns; y++)
+                {
+                    s += "("+ AStar.TileGrid[x, y].Coordinates.x+ ","+ AStar.TileGrid[x, y].Coordinates.y+ ")"+" - "+AStar.TileGrid[x, y].IsWalkable.ToString() + " ";
+                }
+                s += "\n";
+            }
+            Debug.Log(s);
         }
     }
 }
